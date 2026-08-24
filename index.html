@@ -5,10 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script>
 (function(){
+  var theme = 'light';
   try {
-    var t = localStorage.getItem('circulo-theme');
-    if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+    if (localStorage.getItem('circulo-theme') === 'dark') theme = 'dark';
   } catch (e) {}
+  document.documentElement.setAttribute('data-theme', theme);
 })();
 </script>
 <title>Privacidade Círculo Saúde</title>
