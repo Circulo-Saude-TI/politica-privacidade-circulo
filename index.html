@@ -1,3 +1,16 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+(function(){
+  try {
+    var t = localStorage.getItem('circulo-theme');
+    if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+  } catch (e) {}
+})();
+</script>
 <title>Privacidade Círculo Saúde</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -290,11 +303,21 @@ body.toc-open .toc-backdrop,body.toc-open .toc-drawer{display:block}
   .hero{padding:36px 0 28px}
   .contact-card{padding:24px;flex-direction:column;align-items:flex-start}
 }
+.theme-toggle{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:38px;height:38px;border-radius:999px;
+  background:var(--surface);border:1px solid var(--border);
+  cursor:pointer;font-size:1.05rem;line-height:1;padding:0;
+}
+.theme-toggle:hover{background:var(--surface-strong)}
+
 @media (prefers-reduced-motion: reduce){
   html{scroll-behavior:auto}
   *{scroll-behavior:auto !important}
 }
 </style>
+</head>
+<body>
 
 <header class="site-header">
   <div class="header-inner">
@@ -306,6 +329,7 @@ body.toc-open .toc-backdrop,body.toc-open .toc-drawer{display:block}
     </a>
     <div class="header-actions">
       <span class="effective-pill">LGPD · Lei nº 13.709/2018</span>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Ativar tema escuro">🌙</button>
       <button class="toc-toggle" id="tocToggle" aria-label="Abrir sumário">☰ Sumário</button>
     </div>
   </div>
@@ -609,6 +633,33 @@ body.toc-open .toc-backdrop,body.toc-open .toc-drawer{display:block}
 
 <script>
 (function(){
+  var root = document.documentElement;
+  var themeBtn = document.getElementById('themeToggle');
+  function systemPrefersDark(){
+    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  }
+  function isDark(){
+    var attr = root.getAttribute('data-theme');
+    if (attr === 'dark') return true;
+    if (attr === 'light') return false;
+    return systemPrefersDark();
+  }
+  function syncThemeIcon(){
+    if (!themeBtn) return;
+    var dark = isDark();
+    themeBtn.textContent = dark ? '☀️' : '🌙';
+    themeBtn.setAttribute('aria-label', dark ? 'Ativar tema claro' : 'Ativar tema escuro');
+  }
+  if (themeBtn){
+    themeBtn.addEventListener('click', function(){
+      var next = isDark() ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('circulo-theme', next); } catch(e){}
+      syncThemeIcon();
+    });
+  }
+  syncThemeIcon();
+
   var tocLinks = Array.prototype.slice.call(document.querySelectorAll('.toc-link'));
   var sections = tocLinks.map(function(a){ return document.querySelector(a.getAttribute('href')); }).filter(Boolean);
 
@@ -647,3 +698,5 @@ body.toc-open .toc-backdrop,body.toc-open .toc-drawer{display:block}
   }
 })();
 </script>
+</body>
+</html>
