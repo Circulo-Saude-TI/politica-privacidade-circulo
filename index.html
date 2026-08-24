@@ -1,0 +1,649 @@
+<title>Privacidade Círculo Saúde</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#faf7f0;
+  --surface:#f6efe5;
+  --surface-strong:#efe2cc;
+  --border:#e6dac3;
+  --ink:#241c10;
+  --ink-soft:#4a3c28;
+  --muted:#8a7a5e;
+  --blue:#01369b;
+  --blue-mid:#0659fa;
+  --accent:#fb4b00;
+  --accent-2:#ff5f06;
+  --accent-3:#ff7300;
+  --accent-soft:#ffe3d0;
+  --accent-ink:#a63a00;
+  --good-soft:#e3edfc;
+  --good-ink:#01369b;
+  --panel-bg:#201708;
+  --panel-fg:#faf7f0;
+  --radius-lg:18px;
+  --radius-md:14px;
+  --radius-sm:10px;
+  --shadow:0 14px 34px rgba(36,28,16,.10);
+  --shadow-sm:0 4px 14px rgba(36,28,16,.08);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#1b1409;
+    --surface:#241b10;
+    --surface-strong:#2e2213;
+    --border:#3a2c18;
+    --ink:#f5eedf;
+    --ink-soft:#dccfb4;
+    --muted:#b3a182;
+    --blue:#7ea6ff;
+    --blue-mid:#5b93ff;
+    --accent:#ff6a2e;
+    --accent-2:#ff7b3d;
+    --accent-3:#ff8f4d;
+    --accent-soft:#3a2013;
+    --accent-ink:#ffa36b;
+    --good-soft:#152743;
+    --good-ink:#8fb4ff;
+    --shadow:0 14px 34px rgba(0,0,0,.5);
+    --shadow-sm:0 4px 14px rgba(0,0,0,.4);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#1b1409;
+  --surface:#241b10;
+  --surface-strong:#2e2213;
+  --border:#3a2c18;
+  --ink:#f5eedf;
+  --ink-soft:#dccfb4;
+  --muted:#b3a182;
+  --blue:#7ea6ff;
+  --blue-mid:#5b93ff;
+  --accent:#ff6a2e;
+  --accent-2:#ff7b3d;
+  --accent-3:#ff8f4d;
+  --accent-soft:#3a2013;
+  --accent-ink:#ffa36b;
+  --good-soft:#152743;
+  --good-ink:#8fb4ff;
+  --shadow:0 14px 34px rgba(0,0,0,.5);
+  --shadow-sm:0 4px 14px rgba(0,0,0,.4);
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:'Source Sans 3',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
+  line-height:1.6;
+  overflow-x:hidden;
+}
+a{color:var(--blue)}
+:focus-visible{outline:2px solid var(--blue);outline-offset:2px;border-radius:4px}
+
+h1,h2,h3,h4{text-wrap:balance;color:var(--ink);margin:0;font-family:'DM Sans',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif}
+.container{max-width:1180px;margin:0 auto;padding:0 28px}
+
+.brand-name,.brand-title,.eyebrow,.effective-pill,.toc-label,.toc a,
+.fact-label,.section-head .index,.field-group-title,
+.right-card .badge,.stat .stat-num,.mail-btn,.toc-toggle,.chip{
+  font-family:'DM Sans',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
+}
+
+/* ---------- header ---------- */
+.site-header{
+  position:sticky;top:0;z-index:50;
+  background:var(--bg);
+  border-bottom:1px solid var(--border);
+}
+.header-inner{
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding:14px 28px;
+}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none}
+.brand img{height:32px;width:32px;display:block}
+.brand-name{font-weight:800;font-size:1rem;color:var(--ink);letter-spacing:-.01em}
+.brand-divider{width:1px;height:26px;background:var(--border)}
+.brand-title{font-weight:700;font-size:.9rem;color:var(--muted);letter-spacing:.01em}
+.header-actions{display:flex;align-items:center;gap:10px}
+.toc-toggle{
+  display:none;
+  align-items:center;gap:8px;
+  background:var(--surface);border:1px solid var(--border);color:var(--ink-soft);
+  font-weight:600;font-size:.875rem;
+  padding:9px 14px;border-radius:999px;cursor:pointer;
+}
+.effective-pill{
+  font-size:.75rem;font-weight:600;color:var(--muted);
+  background:var(--surface);border:1px solid var(--border);
+  padding:6px 12px;border-radius:999px;white-space:nowrap;
+}
+
+/* ---------- hero ---------- */
+.hero{padding:56px 0 40px;border-bottom:1px solid var(--border)}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--accent-ink);background:var(--accent-soft);
+  padding:6px 12px;border-radius:999px;margin-bottom:18px;
+}
+.hero h1{font-size:clamp(2rem,4vw,2.75rem);font-weight:800;line-height:1.12}
+.hero .lead{
+  max-width:62ch;color:var(--ink-soft);font-size:1.0625rem;margin-top:16px;
+}
+.quick-facts{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:32px;
+}
+.fact{
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);
+  padding:16px 18px;
+}
+.fact .fact-label{font-size:.72rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+.fact .fact-value{font-size:.9375rem;font-weight:600;color:var(--ink);margin-top:6px;line-height:1.4}
+.fact a{color:var(--blue);font-weight:600;text-decoration:none}
+.fact a:hover{text-decoration:underline}
+
+/* ---------- layout ---------- */
+.layout{
+  display:grid;grid-template-columns:250px minmax(0,1fr);gap:48px;
+  padding:44px 0 80px;align-items:start;
+}
+.toc{position:sticky;top:86px;max-height:calc(100vh - 110px);overflow-y:auto;padding-bottom:20px}
+.toc-label{font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;padding-left:14px}
+.toc nav{display:flex;flex-direction:column;gap:2px}
+.toc a{
+  color:var(--ink-soft);text-decoration:none;font-size:.875rem;font-weight:500;
+  padding:7px 14px;border-radius:var(--radius-sm);border-left:2px solid transparent;
+  display:flex;gap:9px;
+}
+.toc a .num{color:var(--muted);font-variant-numeric:tabular-nums;flex:0 0 auto}
+.toc a.sub{padding-left:30px;font-size:.8125rem}
+.toc a:hover{background:var(--surface);color:var(--blue)}
+.toc a.active{background:var(--accent-soft);color:var(--accent-ink);border-left-color:var(--accent);font-weight:600}
+
+main{min-width:0}
+.doc-intro{color:var(--ink-soft);font-size:1rem;max-width:70ch;margin-bottom:44px}
+.doc-intro strong{color:var(--ink)}
+
+.section{scroll-margin-top:86px;padding-bottom:44px;margin-bottom:44px;border-bottom:1px solid var(--border)}
+.section:last-of-type{border-bottom:none}
+.section-head{display:flex;align-items:baseline;gap:14px;margin-bottom:18px}
+.section-head .index{
+  font-size:1rem;font-weight:800;color:var(--accent);font-variant-numeric:tabular-nums;
+}
+.section-head h2{font-size:1.5rem;font-weight:800}
+.subsection{margin-top:32px}
+.subsection h3{font-size:1.0625rem;font-weight:700;color:var(--ink);margin-bottom:10px}
+.subsection .sub-index{color:var(--muted);font-weight:600;margin-right:6px}
+
+.prose{max-width:70ch}
+.prose p{margin:0 0 14px;color:var(--ink-soft)}
+.prose p:last-child{margin-bottom:0}
+.prose strong{color:var(--ink)}
+
+/* data field group */
+.field-group{margin-top:16px}
+.field-group-title{font-size:.8125rem;font-weight:700;color:var(--ink);margin-bottom:10px}
+.field-group-note{font-size:.875rem;color:var(--muted);margin-bottom:10px;max-width:70ch}
+.chips{display:flex;flex-wrap:wrap;gap:7px}
+.chip{
+  font-size:.8125rem;font-weight:500;color:var(--ink-soft);background:var(--surface);
+  border:1px solid var(--border);border-radius:999px;padding:6px 12px;line-height:1.3;
+}
+.chip.sensitive{background:var(--accent-soft);border-color:transparent;color:var(--accent-ink);font-weight:600}
+
+/* callouts */
+.callout{
+  display:flex;gap:14px;align-items:flex-start;
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);
+  padding:18px 20px;margin-top:20px;max-width:70ch;
+}
+.callout.good{background:var(--good-soft);border-color:transparent}
+.callout .glyph{font-size:1.25rem;line-height:1;flex:0 0 auto}
+.callout p{margin:0;font-size:.9375rem;color:var(--ink-soft)}
+.callout.good p{color:var(--good-ink)}
+.callout strong{color:var(--ink)}
+.callout.good strong{color:var(--good-ink)}
+
+.stat-row{display:flex;gap:16px;flex-wrap:wrap;margin-top:20px}
+.stat{
+  background:var(--panel-bg);color:var(--panel-fg);border-radius:var(--radius-md);
+  padding:18px 22px;min-width:180px;flex:1 1 180px;
+}
+.stat .stat-num{font-size:1.75rem;font-weight:800;font-variant-numeric:tabular-nums;color:var(--accent-3)}
+.stat .stat-label{font-size:.8125rem;opacity:.82;margin-top:2px}
+
+/* sharing recipients list */
+.recipients{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:18px;max-width:70ch}
+.recipient{
+  display:flex;gap:10px;align-items:flex-start;font-size:.875rem;color:var(--ink-soft);
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);padding:11px 13px;
+}
+.recipient .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);margin-top:7px;flex:0 0 auto}
+
+/* rights grid */
+.rights-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:20px}
+.right-card{
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);
+  padding:20px;
+}
+.right-card h4{font-size:.9375rem;font-weight:700;color:var(--ink);margin-bottom:8px;font-family:'Source Sans 3',sans-serif}
+.right-card p{font-size:.8438rem;color:var(--muted);margin:0;line-height:1.55}
+.right-card .badge{
+  display:inline-block;font-size:.6875rem;font-weight:700;letter-spacing:.03em;
+  color:var(--accent-ink);background:var(--accent-soft);border-radius:999px;padding:3px 9px;margin-bottom:10px;
+}
+
+/* contact card */
+.contact-card{
+  margin-top:20px;background:var(--panel-bg);border-radius:var(--radius-lg);
+  padding:32px;color:var(--panel-fg);display:flex;flex-wrap:wrap;gap:28px;justify-content:space-between;align-items:center;
+}
+.contact-card h3{color:inherit;font-size:1.125rem;font-weight:800;margin-bottom:6px}
+.contact-card p{margin:0;font-size:.875rem;opacity:.8;max-width:44ch}
+.contact-card .mail-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--accent);color:#fff;font-weight:700;font-size:.9375rem;
+  padding:12px 22px;border-radius:999px;text-decoration:none;white-space:nowrap;
+  box-shadow:0 8px 20px rgba(251,75,0,.35);
+}
+
+/* footer */
+.site-footer{border-top:1px solid var(--border);padding:36px 0;margin-top:20px}
+.footer-inner{display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;align-items:center}
+.footer-brand{display:flex;align-items:center;gap:12px}
+.footer-brand img{height:26px;width:26px}
+.footer-brand .name{font-weight:700;font-size:.9375rem;color:var(--ink);font-family:'DM Sans',sans-serif}
+.footer-muted{color:var(--muted);font-size:.8125rem}
+.back-to-top{
+  color:var(--muted);text-decoration:none;font-size:.8125rem;font-weight:600;
+  display:inline-flex;align-items:center;gap:6px;font-family:'DM Sans',sans-serif;
+}
+.back-to-top:hover{color:var(--blue)}
+
+/* mobile toc drawer */
+.toc-backdrop{display:none;position:fixed;inset:0;background:rgba(32,23,8,.45);z-index:60}
+.toc-drawer{
+  display:none;position:fixed;top:0;left:0;bottom:0;width:min(320px,84vw);z-index:61;
+  background:var(--bg);padding:20px;overflow-y:auto;box-shadow:0 0 40px rgba(0,0,0,.3);
+}
+.toc-drawer-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+.toc-drawer-close{background:none;border:0;font-size:1.25rem;color:var(--muted);cursor:pointer;padding:4px}
+body.toc-open .toc-backdrop,body.toc-open .toc-drawer{display:block}
+
+@media (max-width:960px){
+  .layout{grid-template-columns:1fr}
+  .toc{display:none}
+  .toc-toggle{display:inline-flex}
+  .quick-facts{grid-template-columns:repeat(2,1fr)}
+  .rights-grid{grid-template-columns:1fr}
+  .recipients{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  .container{padding:0 18px}
+  .header-inner{padding:12px 18px}
+  .effective-pill{display:none}
+  .quick-facts{grid-template-columns:1fr}
+  .hero{padding:36px 0 28px}
+  .contact-card{padding:24px;flex-direction:column;align-items:flex-start}
+}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *{scroll-behavior:auto !important}
+}
+</style>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="#topo">
+      <img src="data:image/png;base64,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" alt="Círculo Saúde" />
+      <span class="brand-name">Círculo Saúde</span>
+      <span class="brand-divider" aria-hidden="true"></span>
+      <span class="brand-title">Política de Privacidade</span>
+    </a>
+    <div class="header-actions">
+      <span class="effective-pill">LGPD · Lei nº 13.709/2018</span>
+      <button class="toc-toggle" id="tocToggle" aria-label="Abrir sumário">☰ Sumário</button>
+    </div>
+  </div>
+</header>
+
+<div class="toc-backdrop" id="tocBackdrop"></div>
+<aside class="toc-drawer" id="tocDrawer">
+  <div class="toc-drawer-head">
+    <span class="toc-label" style="margin:0">Sumário</span>
+    <button class="toc-drawer-close" id="tocClose" aria-label="Fechar sumário">✕</button>
+  </div>
+  <nav id="tocDrawerNav"></nav>
+</aside>
+
+<main id="topo">
+  <section class="hero">
+    <div class="container">
+      <span class="eyebrow">Soluções integradas em saúde.</span>
+      <h1>Política de Privacidade</h1>
+      <p class="lead">Cuidar da sua saúde começa por cuidar dos seus dados. Veja como coletamos, usamos, processamos e compartilhamos as informações pessoais de beneficiários, pacientes, colaboradores e prestadores — sempre em conformidade com a Lei Geral de Proteção de Dados (Lei nº 13.709/2018).</p>
+
+      <div class="quick-facts">
+        <div class="fact">
+          <div class="fact-label">Controlador</div>
+          <div class="fact-value">Círculo Saúde</div>
+        </div>
+        <div class="fact">
+          <div class="fact-label">Encarregado (DPO)</div>
+          <div class="fact-value"><a href="mailto:lgpd@mrbadv.com.br">lgpd@mrbadv.com.br</a></div>
+        </div>
+        <div class="fact">
+          <div class="fact-label">Transferência internacional</div>
+          <div class="fact-value">Não realizamos</div>
+        </div>
+        <div class="fact">
+          <div class="fact-label">Prazo de resposta</div>
+          <div class="fact-value">Até 15 dias</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container layout">
+    <aside class="toc">
+      <div class="toc-label">Sumário</div>
+      <nav id="tocNav">
+        <a href="#controlador" class="toc-link"><span class="num">1</span>Controlador de dados</a>
+        <a href="#informacoes" class="toc-link"><span class="num">2</span>Quais informações coletamos</a>
+        <a href="#info-beneficiario" class="toc-link sub"><span class="num">2.1</span>Paciente e beneficiário</a>
+        <a href="#info-colaboradores" class="toc-link sub"><span class="num">2.2</span>Funcionários e prestadores</a>
+        <a href="#info-terceiros" class="toc-link sub"><span class="num">2.3</span>Coletadas de terceiros</a>
+        <a href="#info-opcionais" class="toc-link sub"><span class="num">2.4</span>Informações opcionais</a>
+        <a href="#uso" class="toc-link"><span class="num">3</span>Como utilizamos</a>
+        <a href="#compartilhamento" class="toc-link"><span class="num">4</span>Compartilhamento</a>
+        <a href="#seguranca" class="toc-link"><span class="num">5</span>Segurança</a>
+        <a href="#alteracoes" class="toc-link"><span class="num">6</span>Alterações na política</a>
+        <a href="#direitos" class="toc-link"><span class="num">7</span>Direitos do beneficiário</a>
+        <a href="#contato" class="toc-link"><span class="num">↳</span>Fale conosco</a>
+      </nav>
+    </aside>
+
+    <main>
+      <p class="doc-intro">Desde 1934 cuidamos de vidas na Serra Gaúcha, e sabemos que confiança se constrói com transparência. Esta política descreve como tratamos as informações pessoais de <strong>beneficiários</strong>, <strong>pacientes</strong>, <strong>funcionários</strong>, <strong>prestadores</strong> e <strong>credenciados</strong>, garantindo privacidade, transparência e segurança nos termos da LGPD. Ela também se aplica ao público em geral que interage com os serviços da Instituição. Se você nos fornecer dados pessoais de outra pessoa, deve assegurar que possui o direito de divulgá-los, inclusive o consentimento necessário.</p>
+
+      <section class="section" id="controlador">
+        <div class="section-head"><span class="index">1</span><h2>Controlador de dados</h2></div>
+        <div class="prose">
+          <p>A responsabilidade pelas informações coletadas de nossos usuários é do <strong>Círculo Saúde</strong>, denominado nesta Política como "Controlador(a) de Dados", ou simplesmente "Controlador(a)".</p>
+          <p>Quando do atendimento do beneficiário e do paciente junto à rede Credenciada ou aos prestadores do Hospital, as informações destes atendimentos são de responsabilidade do médico prestador de serviços, que atua como <strong>Controlador conjunto de Dados</strong> nesses casos. A Controladora somente será responsável quando coletar as informações de terceiros para execução de seu objeto social, durante o tratamento destas informações.</p>
+        </div>
+      </section>
+
+      <section class="section" id="informacoes">
+        <div class="section-head"><span class="index">2</span><h2>Quais informações coletamos</h2></div>
+        <div class="prose">
+          <p>As informações são coletadas no momento da contratação/adesão ao plano, no cadastramento do beneficiário, no atendimento junto ao Hospital — recepção, emergência ou qualquer entrada da entidade —, no preenchimento voluntário de formulários on-line mediante consentimento expresso, ou quando você contata o Círculo Saúde por e-mail ou telefone. Cada dado coletado varia conforme a finalidade de uso, e utilizamos apenas o necessário para cada uma delas.</p>
+        </div>
+
+        <div class="subsection" id="info-beneficiario">
+          <h3><span class="sub-index">2.1</span>Informações do paciente e do beneficiário necessárias para a assistência médico-hospitalar</h3>
+          <div class="prose">
+            <p>Solicitadas na adesão a um plano de saúde ou na entrada no Hospital, necessárias à execução do contrato, à tutela da saúde do paciente e ao cumprimento de obrigações legais. Sem elas, talvez não seja possível prestar todos os serviços solicitados.</p>
+          </div>
+
+          <div class="field-group">
+            <div class="field-group-title">Dados do beneficiário</div>
+            <div class="chips">
+              <span class="chip">Nome completo</span><span class="chip">Documento de identidade (tipo, registro, órgão emissor, UF, emissão)</span><span class="chip">CPF</span><span class="chip">Data de nascimento</span><span class="chip">Idade</span><span class="chip">Peso</span><span class="chip">Altura</span><span class="chip">Convênio</span><span class="chip">Nº da carteirinha</span><span class="chip">Período de carência</span><span class="chip">PIS/PASEP</span><span class="chip">NIRE</span><span class="chip">CCO</span><span class="chip">Código do usuário</span><span class="chip">Tipo de plano e subplano</span><span class="chip">Sexo</span><span class="chip">Título de eleitor</span><span class="chip">Profissão</span><span class="chip">Estado civil</span><span class="chip">Nome social</span><span class="chip">Endereço completo</span><span class="chip">Telefones (pessoal, comercial, residencial)</span><span class="chip">Nome do pai e da mãe</span><span class="chip">E-mail</span><span class="chip">Naturalidade e nacionalidade</span>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <div class="field-group-title">Dados sensíveis — prontuário e assistência à saúde</div>
+            <div class="chips">
+              <span class="chip sensitive">CID / patologia / doença</span><span class="chip sensitive">Unidade de atendimento</span><span class="chip sensitive">Evolução médica</span><span class="chip sensitive">Histórico de atendimentos</span><span class="chip sensitive">Descrição do procedimento</span><span class="chip sensitive">Boletim de atendimento</span><span class="chip sensitive">Religião</span><span class="chip sensitive">Resultados de exames</span><span class="chip sensitive">Medicamentos (atuais e pretéritos)</span><span class="chip sensitive">Esquema vacinal</span><span class="chip sensitive">Laudo médico</span><span class="chip sensitive">Receituário</span><span class="chip sensitive">Dados biométricos (controle de acesso)</span>
+            </div>
+            <p class="field-group-note" style="margin-top:12px">Se tiver interesse em conhecer todas as informações que possuímos sobre você, pode entrar em contato para obter uma relação completa. Ligações para nossos canais são gravadas.</p>
+          </div>
+
+          <div class="field-group">
+            <div class="field-group-title">Verificação de identidade</div>
+            <p class="field-group-note">Para manter um ambiente confiável, podemos coletar imagens de documento oficial — passaporte, RG ou CNH — ou outras informações de autenticação, conforme permitido pela legislação.</p>
+          </div>
+
+          <div class="field-group">
+            <div class="field-group-title">Dados de pagamento</div>
+            <div class="chips">
+              <span class="chip">Dados financeiros (banco, conta, agência)</span><span class="chip">Débitos e pagamentos</span><span class="chip">Orçamentos</span><span class="chip">Faturamento (despesas, sala, internação)</span><span class="chip">Comprovante de pagamento</span><span class="chip">Boletos de cobrança</span><span class="chip">Coparticipação</span><span class="chip">Recibos</span><span class="chip">Nota fiscal</span>
+            </div>
+          </div>
+
+          <div class="prose" style="margin-top:20px">
+            <p>Também coletamos dados de comunicações por e-mail e, mediante consentimento, nome, e-mail e telefone de acesso a <em>landing pages</em>, usados na oferta de nossos serviços e de parceiros. Podemos coletar dados de familiares, com consentimento, para servir de referência. Câmeras de segurança gravam o local, com acesso restrito à manutenção da segurança e ao cumprimento de ordem legal ou policial.</p>
+          </div>
+        </div>
+
+        <div class="subsection" id="info-colaboradores">
+          <h3><span class="sub-index">2.2</span>Informações de funcionários, credenciados e prestadores</h3>
+          <div class="prose">
+            <p>Utilizamos os dados do amplo corpo de colaboradores — funcionários e médicos prestadores, incluindo credenciados da Operadora — para identificação na base interna e perante terceiros, e para o pagamento da contraprestação.</p>
+          </div>
+
+          <div class="field-group">
+            <div class="field-group-title">Funcionários</div>
+            <div class="chips">
+              <span class="chip">Nome completo</span><span class="chip">Documento de identidade</span><span class="chip">CPF</span><span class="chip">Nome do pai e da mãe</span><span class="chip">Data de nascimento</span><span class="chip">Sexo</span><span class="chip">Estado civil</span><span class="chip">Grau de instrução</span><span class="chip">Nacionalidade</span><span class="chip">Habilitação profissional</span><span class="chip">CNH</span><span class="chip">PIS/PASEP</span><span class="chip">Título de eleitor</span><span class="chip">CNS</span><span class="chip">Certificados (Fund./Médio/Superior)</span><span class="chip">CTPS digital</span><span class="chip">Telefone</span><span class="chip">Nº Conselho de Classe</span><span class="chip">Endereço</span><span class="chip">Função</span><span class="chip">Salário base</span><span class="chip">Tipo sanguíneo</span><span class="chip">Dados bancários</span><span class="chip">Escala de horários</span><span class="chip">Folha de pagamento</span><span class="chip sensitive">Ponto biométrico</span><span class="chip sensitive">Exames admissionais/demissionais</span><span class="chip sensitive">Atestados médicos</span><span class="chip">Registros fotográficos em eventos</span>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <div class="field-group-title">Médicos e prestadores de serviço</div>
+            <div class="chips">
+              <span class="chip">Nome completo</span><span class="chip">CPF</span><span class="chip">Nº Conselho de Classe</span><span class="chip">PIS/PASEP</span><span class="chip">Inscrição INSS e ISS</span><span class="chip">Código CNES</span><span class="chip">Endereço</span><span class="chip">Telefone</span><span class="chip">E-mail</span><span class="chip">Convênios credenciados</span><span class="chip">Especialidade</span><span class="chip sensitive">Ponto biométrico</span><span class="chip">Relatório de produção médica</span><span class="chip">Remuneração e honorários</span><span class="chip">Dados bancários</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="subsection" id="info-terceiros">
+          <h3><span class="sub-index">2.3</span>Informações que coletamos de terceiros</h3>
+          <div class="prose">
+            <p>Eventualmente coletamos informações, incluindo sensíveis, que terceiros forneçam sobre você ao utilizar serviços em nossa rede credenciada ou similares — como dados de outros convênios ao qual você é beneficiário. Não controlamos nem respondemos pelo modo como esses terceiros processam suas informações; qualquer pedido de divulgação deve ser direcionado a eles.</p>
+            <p><strong>Rede credenciada ou similares:</strong> ao realizar um procedimento junto a instituições parceiras, elas podem nos enviar seu cadastro e dados do atendimento, usados para auditoria, controle, fiscalização e pagamento junto à rede.</p>
+            <p><strong>Outras fontes:</strong> conforme a lei aplicável, podemos receber informações públicas, dados demográficos ou informações que ajudem a detectar fraudes e reforçar a segurança.</p>
+          </div>
+        </div>
+
+        <div class="subsection" id="info-opcionais">
+          <h3><span class="sub-index">2.4</span>Informações opcionais</h3>
+          <div class="prose">
+            <p>Além dos dados coletados e daqueles fornecidos por terceiros, podemos eventualmente solicitar, sempre com seu consentimento expresso, outras informações úteis à promoção, divulgação ou realização de atividades voltadas à assistência médica.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="uso">
+        <div class="section-head"><span class="index">3</span><h2>Como utilizamos as informações coletadas</h2></div>
+        <div class="prose">
+          <p>As informações são utilizadas para o estrito cumprimento do contrato existente — a adesão ao plano de saúde e a consequente prestação do serviço médico-ambulatorial —, para garantir a segurança do ambiente, para controle, fiscalização e auditoria dos serviços junto a terceiros, e para o cumprimento de obrigações legais, inclusive junto à Agência Nacional de Saúde Suplementar (ANS).</p>
+          <p>Seus dados pessoais não serão utilizados para finalidade diversa das previstas nesta Política, salvo autorização e consentimento prévio, expresso e destacado.</p>
+          <p>O Círculo Saúde também pode tratar dados com base no <strong>legítimo interesse</strong>, sempre de modo limitado e adstrito à finalidade pretendida, nunca em prejuízo aos interesses ou direitos de beneficiários e pacientes.</p>
+        </div>
+        <div class="callout">
+          <span class="glyph">🗂️</span>
+          <p><strong>Retenção:</strong> conservamos os dados apenas pelo período necessário à execução do contrato ou à finalidade a que se prestam, eliminando-os por completo ao fim do tratamento — salvo obrigação legal/regulatória ou autorização diversa sua.</p>
+        </div>
+      </section>
+
+      <section class="section" id="compartilhamento">
+        <div class="section-head"><span class="index">4</span><h2>Compartilhamento das informações coletadas</h2></div>
+        <div class="prose">
+          <p>Não compartilhamos suas informações sem consentimento, salvo para a execução da assistência à saúde contratada — com nossos médicos e prestadores —, para auditoria, fiscalização e pagamento junto à rede credenciada, para autorização ou negativa de procedimentos junto aos convênios parceiros, e para cumprimento de obrigações legais junto à ANS e à Secretaria Municipal de Saúde.</p>
+        </div>
+
+        <div class="field-group">
+          <div class="field-group-title">Também compartilhamos, sempre no mínimo necessário, com</div>
+          <div class="recipients">
+            <div class="recipient"><span class="dot"></span>Entidades subsidiárias, afiliadas, regionais e coligadas ao Círculo, para cobertura do plano</div>
+            <div class="recipient"><span class="dot"></span>Análise estatística e auditorias, para melhorar a qualidade do serviço</div>
+            <div class="recipient"><span class="dot"></span>Arquivamento e armazenamento seguro de documentos</div>
+            <div class="recipient"><span class="dot"></span>Instituições bancárias, para cobrança e adimplemento</div>
+            <div class="recipient"><span class="dot"></span>Estabelecimentos farmacêuticos conveniados</div>
+            <div class="recipient"><span class="dot"></span>Cooperativa de recicladores, apenas para descarte seguro</div>
+            <div class="recipient"><span class="dot"></span>Empresas prestadoras envolvidas na cadeia do serviço</div>
+            <div class="recipient"><span class="dot"></span>Assistência de informática, jurídica e contabilidade externa</div>
+            <div class="recipient"><span class="dot"></span>Hospitais, clínicas, laboratórios e consultórios, com ciência prévia do paciente</div>
+            <div class="recipient"><span class="dot"></span>Empresa contratante, se plano coletivo-empresarial (faturamento)</div>
+          </div>
+        </div>
+
+        <div class="prose" style="margin-top:20px">
+          <p><strong>Dependentes e titular:</strong> beneficiários dependentes têm seus dados — inclusive sensíveis de utilização do plano — compartilhados com o titular, para que este tenha ciência de cobranças, coparticipações, faltas a consultas, autorizações e negativas de cobertura, conforme art. 11, §4º da LGPD e RN 389/2015-ANS.</p>
+          <p><strong>Plano coletivo-empresarial:</strong> seus dados são compartilhados com a empresa contratante, que atua como Controladora conjunta, mediante relatórios de mensalidades — eventualmente com dados sensíveis de saúde — para conferência da fatura e folha de pagamento.</p>
+        </div>
+
+        <div class="callout good">
+          <span class="glyph">🌎</span>
+          <p><strong>Não realizamos compartilhamento internacional</strong> de seus dados pessoais.</p>
+        </div>
+      </section>
+
+      <section class="section" id="seguranca">
+        <div class="section-head"><span class="index">5</span><h2>Segurança</h2></div>
+        <div class="prose">
+          <p>Implantamos e atualizamos continuamente medidas administrativas, técnicas e de segurança física, com processos de revisão de vulnerabilidades. Os dados são armazenados em repositório físico e/ou digital, em ambiente seguro e controlado, com acesso restrito a pessoas autorizadas.</p>
+        </div>
+        <div class="field-group">
+          <div class="chips">
+            <span class="chip">Firewalls</span><span class="chip">Antivírus</span><span class="chip">Controle de acesso por senha</span><span class="chip">Acesso segregado por função</span><span class="chip">Política de Segurança da Informação</span>
+          </div>
+        </div>
+        <div class="prose" style="margin-top:20px">
+          <p>Dados de nível cadastral são acessados pela área operacional; dados sensíveis e bancários, somente por quem necessita deles para suas funções. Funcionários, prestadores e credenciados assinam termo de confidencialidade e passam por treinamento especializado em LGPD.</p>
+        </div>
+        <div class="stat-row">
+          <div class="stat">
+            <div class="stat-num">24h</div>
+            <div class="stat-label">para notificação em caso de descumprimento de obrigações de proteção de dados ou violação de segurança</div>
+          </div>
+        </div>
+        <div class="callout">
+          <span class="glyph">⚠️</span>
+          <p>Se souber ou suspeitar que seus dados foram perdidos, roubados, desviados, comprometidos ou usados sem autorização, entre em contato conosco imediatamente pelos canais da seção <a href="#contato">Fale Conosco</a>.</p>
+        </div>
+      </section>
+
+      <section class="section" id="alteracoes">
+        <div class="section-head"><span class="index">6</span><h2>Alterações na política de privacidade</h2></div>
+        <div class="prose">
+          <p>O Círculo Saúde pode alterar esta Política a qualquer momento. Alterações serão publicadas em nosso website. Se você não concordar com a versão revisada, pode solicitar sua exclusão do plano de saúde. Caso não solicite a exclusão antes da data de vigência da nova Política, a utilização regular e continuada do plano constituirá aceitação tácita da versão revisada.</p>
+        </div>
+      </section>
+
+      <section class="section" id="direitos">
+        <div class="section-head"><span class="index">7</span><h2>Direitos do beneficiário</h2></div>
+        <div class="prose">
+          <p>Em conformidade com a LGPD, é direito do titular o livre acesso e a transparência quanto ao tratamento de seus dados, inclusive sobre quais entidades os recebem. Você pode exercer qualquer um destes direitos junto ao Controlador de Dados:</p>
+        </div>
+
+        <div class="rights-grid">
+          <div class="right-card">
+            <h4>Gerenciamento das informações</h4>
+            <p>Acessar e atualizar seus dados entrando em contato conosco. Você é responsável por mantê-los atualizados.</p>
+          </div>
+          <div class="right-card">
+            <h4>Retificação</h4>
+            <p>Solicitar a correção de informações pessoais incorretas ou incompletas referentes a você.</p>
+          </div>
+          <div class="right-card">
+            <h4>Portabilidade e acesso</h4>
+            <p>Solicitar cópia dos dados fornecidos em formato estruturado e legível por máquina, ou seu envio a outro plano de saúde, quando tecnicamente viável (LGPD e Lei 9.656/98).</p>
+          </div>
+          <div class="right-card">
+            <span class="badge">15 dias</span>
+            <h4>Informações sobre o tratamento</h4>
+            <p>Obter quais dados são tratados, os critérios utilizados e a finalidade, respondido no prazo máximo de 15 dias.</p>
+          </div>
+          <div class="right-card">
+            <h4>Retenção e exclusão</h4>
+            <p>Solicitar a exclusão total ou parcial de seus dados. Podemos reter informações necessárias por obrigação legal, contratual ou para cobrança de serviços já realizados — inclusive em casos de fraude ou inadimplência.</p>
+          </div>
+          <div class="right-card">
+            <h4>Retirada de consentimento</h4>
+            <p>Desistir do consentimento a qualquer momento, sem afetar a legalidade do tratamento realizado antes da retirada.</p>
+          </div>
+          <div class="right-card">
+            <h4>Apresentação de reclamações</h4>
+            <p>Registrar queixas sobre nossas atividades junto ao Encarregado de Dados, pelo "Fale Conosco" do website ou diretamente em nossa sede.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="contato" style="border-bottom:none;padding-bottom:0;margin-bottom:0">
+        <div class="section-head"><span class="index">↳</span><h2>Como exercer seus direitos</h2></div>
+        <div class="prose">
+          <p>Dispomos de um Encarregado de Dados (DPO), que pode ser contatado pelo canal abaixo ou pelos demais canais disponibilizados em nosso website, além de atendimento pessoal em nossa sede. Por obrigação da ANS, também dispomos de ouvidoria — solicitações sobre dados e privacidade podem ser direcionadas a qualquer um destes canais.</p>
+        </div>
+        <div class="contact-card">
+          <div>
+            <h3>Encarregado de Dados (DPO)</h3>
+            <p>Dúvidas, solicitações e exercício dos direitos previstos nesta Política, com agilidade e eficiência na resposta.</p>
+          </div>
+          <a class="mail-btn" href="mailto:lgpd@mrbadv.com.br">✉ lgpd@mrbadv.com.br</a>
+        </div>
+      </section>
+    </main>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABD4AAAQ4CAMAAADW0Oz6AAAAM1BMVEVMaXH7SwD7SwD7SwD7SwD7SwD7SwD7SwD7SwD7SwD7SwD7SwD7SwD7SwD7SwD7SwD7SwCxk5r3AAAAEHRSTlMAMKDQgMBg8BBAIOCQcLBQwtFvLwAAAAlwSFlzAAALEgAACxIB0t1+/AAAIABJREFUeJzt3dt64joMhuEFBBL2uf+rXaXtTNspm0BkS7/8vYfrWQcDTYQsyfZ//wEAAAAAAAAAAAAAAAAAAADA83bb3wbvfxSAmN4CRtd16/V6Nd6zWq9PXXfcbnfe/2AA3hbbS9Do78aM6/r1uuu2C+8PAKC6YXs8rPcvhI1/7deHIysboBHbzeGlfOOefn3YbL0/GICCFsfl/eLGPKvlkdUMkM9w7tYFI8eXdXdmLQOkMZwPJZOO31YHQgigr3roIIQAKSyOdRYst6yphQCSzkuLxuxc++XZ+4sA8Ixhc7Luzc5w2rCMATS8xQ7vgPELEQSIL2Ls+EAEAUI7LwOtWX6jDgIEtTtEqJXe1x/oxQDRDBuf8Y7nrVjEAJEsYi9a/tEvSUGAIGQSjy+kIEAAu04p8fjSHziyDHC1XXqHgRmWHBECuDn7bmmZb73x/gqBNm3i92kf2xNAgNqGY4bgcdF3VFGBigbReul1BBCgmlzB44IAAtSRLnhcEECA8lIUTK/pj95fLZBb2uBxQRcGKGerPufxyIpBMqCIXdSDgCytGWUHzA2d95tdyYEaKmBrk7Hdch01VMDSInvR4ydKIICV4eD9Ple3ZAUDWGho3fKFFQww366tdcuXNScaAvOknFCfqPP+8gFlC71TTC1RQgVe1sqox20MgQAvaTz1+LAnAQGeR+rxgQoI8KQdqccfK1owwDOODTdcfmMGBJhsaGFv7TPWVFCBabaZzwR6TU8FFZiCmuk1B+8/CxDf0OqQ+iMrDhIC7ttSM72FBQxw19H7HQ2NERDgJjouD5zowADXMaX+0J4RMuCaM2WPx3ruggF+o+wxDQUQ4F9L79dSBuegAj8MlD2mWxE/gC8LxtSf0VNABf5gVuxJ/dn7TwYEsfF+GwXRgAEu2CL3CrbQAbRcXrX0/sMB3gaix6uYYEfjaNjOQAMXTSN6zEL8QMOIHjNxhBCaxQ7b2RggQ6MWDIvNR/xAk4geJogfaBDRwwjxA80hepghfqAxRA9DxA80hehhiviBhgxED1vEDzSDaTFzzJ+iEUSPAogfaALRowjiB1rAFdhlrLz/sEBxnO9RCucHITuiRznED+TGqcglHb3/vEBBRI+yOH8deTFsWhrjY8hqR/QojfFTJMXARwWMfyAnBj5qWHv/mYECaNnWQfsW+dB0qYX2C7JZeL9UDaF8ilw44aOinvIpUqHpUhO755DJwfuFagzlU+RB2bQ2yqfIgln16pg+RRJMmzpg+hQ5MC/mgfIHMqDw4YPyB/RR+HBC+QP6KHx4YfoD6pj48HPw/uMDs2y9X6Gmbb3//MAMbHVxtad7C2En7xeocSfvBwB42dn79Wne2fsRAF7E0sUde/ehiqWLP5Yv0MTSJQKWL1DE0iUEli9QxNIlBpYv0MPSJQqGx6Bm2Hu/NfjE8BjUsNcljs77YQCewrUukbB1H1K4zzYS7r2FkqP3C4MfOHkMOhj5CIbhD+igbhoNJwdBBXXTeHbeDwUwDXXTeKieQgPzphExewoJzJtGtPd+LIAJOu8XBVcdvR8M4CGatkHRvEV8JB9RsfUF0e28XxLcQvqB6JbeLwluWno/HMBdJB+RMTuG0Eg+IiP9QGRcaRsb6QcCY1w9NtIPxEXyER3pB8Ii+YiO9ANRsVE/PtIPBEXbJT7SD8TEzIcC0g+ERPKhgPQDEZF8SGDnCyLifGQNbLxFPJzzIaL3flKAX7gZSgV3RiEcTjhVwamniGbj/VJgMg5dRzDMq+s4eT8swA/MqythdAyhMDKmhBtvEcng/ULgGfRuEQldWy30bhEIXVstK+8HBviLU8bULLwfGeAPCqdqKJ4iCgqnciieIgomTvVQPEUQK+93AU9j8hQxcE6QIiZPEQLnBCk6ej82wAVDH4oY/UAEDH1oYvWCABj60MToBwLgjFNNHDoGf2fv1wAvYnAd7li7qGL1AnesXVSxeoE31i66WL3AGWsXXaxe4IyZMV1MjsEXJ6wrY3IMrtjvoox9L3DFXn1la+/HB01jr762wfsBQss4Z0zb2fsBQstO3s8/Zll6P0BoGSOn2hg8hR+O+lDH4CncdN5PP2aidQs3tG3VceA6vHA9lDyui4IXdtvqo/gBJ0ys66P4ASeUPvRR/IAPSh8JUPyAD6Y+MqD4ARdMfWRA8QMu1t5PPgyw7QUu2PCSAdte4IFzCnPgzA844KyPHLbeDxJaxNBYDp33g4QWMTSWAweewoH3Yw8bDI6hPiqnWVA7RXVUTrOgdorqqJxmQe0U1TFzmgWbblEdM6dZcFM2amO3fh7ezxKaw279PNizj8qO3s88zHBVJSqj8ZIHrRdURuMlD1ovqIzGSx60XlBXxsbLfv3m1P2x/ePvfzld/oeMcdP7aUJjkjRe3iLGoevO2+3uqU+/227PXXdYr/feH8AGY+uoSrvxsnoLGputzUuz3W665Vr79AKOS0ZVS+8n/iX9evkWNsrsMB3ew4j3J3wNxyWjKrWsfb8uFjd+ukQRuTUNxyWjJqHKaX8JHNW/oO3moFRkfa70A8xy9n7eJ9mfuidrorZ22+6kkYhsHL8lNCf8zOlbzlFlrfLYsO3i5yEUP1BR6EbD6rCJlozvNofQXxnFD9QTt/Sx7s4xko7fhnMXtzETLd4isZilj7f1ivcX89A2aAhh8gPVxJv6WB10dp2fAy5kuOwF1cQqBfbLTdQFyy3DZhnrO+S2BtQS6YqXVad6Vtaii5SE0LpFJVHatv1JLu34adicoiQhnPmBSkKMQvVLnWrHPecgyxjtQAwZAdYu+4PqkuWaxSFAQGb1giq81y65YscH/whC7wVVuD7ofcLY8WFx8F3FMDmGChxnxrLUO25xrYNw3joqcJsZO7WwPN+cvL5e9r2gPKf9LvtjK8n17ui0Osyd2SEEj1NO+2XWgsd1C5dFDKMfKK7+T+NafDjsFcPGYWtdK/kd3NS+oaE/tPpQ76p3Yjg0CIXVreytGkw8vgyburti+pa/bFSwq/k4L+Of31Hatmqfi94tiqr3NO87fgsvhq7eGqb3/rBIrVrXdtXCjMdU9dYwfOsoqKvzFJ9Ytfy0rVRyYnQM5QxV8uhlq72We3Z1lo2kHyimQvLRdwSP63Y1iiCkHyilfPLRUy+9o0YVleYLCimdfOyPBI/7huL7YZj9QBmFZz72rLun2BQOIKQfKKJo8Y7gMVnZANJTe0IBJY84JXg8pWgAYecLCii3BbQnYX5WySIqQzcwV+yMQrotryjYhVl5fzakM5TKlwkeLxqKNcK4LxvGCj2rTJjOUGoSleYtbJWpm64JHvMsyhSkOLYQpko8pitqdPNtiywqOTUZhgqcj9zTq7WxKVBDZfkCOzv7J5SKqZkSNVSWLzBjvnQ5UfSwtLNfW7J8gRHrpcueooc18xIIyxfYWNguXZgxLcJ6jIzlC0zYnrTJuqWQnfGBhgyPwcDB8plk3VKQ8QqmrYtBUYTpXhf6LUXZ9mBW/LEwk2XPds3vWWmmY6hs3cdMdoWPnsV0DUfDeM9fDLPYbcqiZFqJZQmVdBEzbKyew54xpHrOZgkIJxfidWb7bE9U4WoazBIQyqd4ldW9LqQe1ZklIJRP8ZrBqGxK6uHALAE5eH8SaLJ5AEk9nFglIBysgBfYNF04UMyN1T5c4j+eZrPNlskBTzZ/w572LZ5k0rJd8eD5WpiUr4gfeI5J9KDq5s9kwyPxA8+wGPjo2VwbgUkFdU/zDJNZHBC05omLYbCooDI+hqksogdHisVhsY2f+IFpDKLHnsVyJFuD3wPiB6YwiB4sXIKxWMDQRsNjBqU2Fi7xGCxg6L/gkfkdWzouIRksYIgfuG9+9GCNHJTBDkh+GXDP/CEjNnjHZbCLif1zuGn288W916EZzBJT18J187Nb+rXBGXTVSC9xzfztVZQ9wjMogPBXxm/zK/P8LimYXwAhx8S/5h8NQdlDg0Frnj81vpt/MiY9PRkGEyAcxYAvBmUPElodBocIrTiDEp/m32tIOU2KxQQZJ6DiwuBIf4qmagwmyA78ZMBiJcwokR6DLXR0YJo3GJyFSR1ekcVptvxutG27n/0I0XIRZXKGEAlIuyxSDzZxy7I4k3LsqIA06jw/9aDlomxncQvMnuyzRSZXGBI9pNlcgn5iBqQ1g8Xp2+OJ6KHNoGn/pmcF05aNwbqFcY8MbC5C39N9a4dBv+WC6JGBTfwY15RA2rC1KHqMbJvKwuQW3JEA0gSr4MGwWBom16FfEECSMwseRI9EzOIHASSzjUmf7h3RIxO7+DGueTJSGjqbguk7npFcDOPHuKeNm87WqMD+geiRjWX8GMcla5hEdpaJx0j0yMg2foz7I6OoKeyOdhWPD0SPjIzjx6UKwiJGnH3sIHpkZR4/xvG0IQdRNZwPtmuWD0SPrArEj3FcHaiDyBnOndmEx09Ej7yKxI83p44QomK37U4lso4PRI/MSsWPN+vDhhgS2uLcLQvlHH8QPXIrGD8uVuuOIBLPsD2WDhzviB7ZFY4f7/ZvixmaMkG8RQ777sp1RI/8asSPiz0FEW/D+VAj5/iDHfotMB1PfmB1OJOGuBg2y3IF0qs4HagNNePHSAhxcD7UWq98IXq0onL8GBkOqWhxrLlg+Wvt/blRjcsDxoRqeWUGSSfgRoaG2Nzf8MJDduDOsWKG89LiWrDX/rBEj5Z4xY9x3LOMKWHYmNzI8aKevLItJvdXvvqwcVqIMce84/0PSk7ZGs/4cclBeOKsLHxjxxt+Ddpzdn7mOG/IgvVBYa9g2LRFtcZPb+PU5ZlcCx5/MGzaJqvro2bolyxiXrU7eC9a3jEu1qr642NXrEhBXnGOkHi8WXl/EfDi1779oT9QBXnOcPSveHzYM/DRriHKU3iieD9dkFXLBS3bpvm2b79jDTOR7YVOM529vw248m7ffsPldRPY3WFt4ej9dcDZ0fsR/KYngNy3CRU8aLogRvvlryVV1Js2USpVn2i6IEr75S8CyHXRgsfYkyriLX6EKZ9+IoD8to0WPMaRpgsuFt4P4i9Lfth+iFUw/UCnDB/8d7/8iyLqN4uAwYOyKf6KVT5913feX0oQu4B/HI4XwzfRyqfv9qTHb3+ZLlpl6h3Hi+GbXciHdN38KHu4dssnpk3xXaDp0+/absKELHpcsLDETwEO/7im4RLIELLoccGdLvhX1F+6faMrmE3I9eQF82L4Jdz02F+nBlcwYdctIycj45qt92N5U9/azs6h8/7K72h3OYl7gpY/LlZNTUgHnFD/wkY5XBdx+uOPdsZQh8BhnIkP3BRz+uNTKyXU0KkHEx+4Lej0x6dDAwlI7NSDrS64J+yowbv8CUjw1IOD1XFPmKPXb0he9Q+eenDGB+6Ld/bHT5lbMIvIpet3yaM3Zos8cfAu7QzIMXLh+h09WzwS/ifwlHL9PQS5dPIOerZ4KM7NUbf0CSuoi+BFp4u0eR8MRbr55YZ0a3CB75x9tpgk8G6tP9apFjACCxeWLpgo9PDpp0wLmPgdlwuWLphGIZXO8zjHPdjjO5YumEpg+ZKmAxN+VOwdSxdMprB8yTFCNkhE6kS5HiqQWL4kKIAo9GsvWLrgGfwo1nCWyPJG9rrgOdH3vvwhvYE83uWgN6Sbs0Fh4fe+fBK+LTH26Qjf7L2/KcgRWZXLFlAlZsU+yJeYUF3cg9f/0UvGj5DXCl8nvUCEE5ncuhe8S1ul5TJyKxReEvfeqF/k4kf8bc1f5L5chCDTGBjHg/d39RyZhu3IyAdeJTL8cSG1PheKy4x84FUqwx8XQvFDKnqI5XUIRGM71weZARCp6EHdFC8Tqp7KxA+lkEzdFHNI/VJKxA+Zdvg7zlbHHDrDTaNE/NCKHsybYhaZ2dN34eOHWPQQqkcjJK0HPnj80PoyOWIMc2kcPPZX6PghFj3Yp4/ZVHbufwocP9SiB01bzCbVvB0Dxw+pLtYFTVvMp/bYB40fal8jhwTBhM7e8g8h44dc9KBpCxNazds3J+9v7De96MFOW9gQ2nn7Idy8gtL5Hp9IPmBDLv2IFj8Eo0fADA6idE71/SPUBTBiszPvmBiDlZ33w/y8QF1HoVOR/wqWvkGa2sTTGGntLhg9SD5gSDD9CHN/g2DoJfmAKcF3IMjMtdjQ/weSD1gSTD9ijI/pDXyMHHAKa4LpR4Tmo2DLNkzehjwU0w//X1G1/YYf2KgPa4rph3f7VrFl+4bkA9Yk0w/n9otkyKXtggIk3wXXZfzR+9O/hrYL7EmmH55XDShd0vcNyQdKkEw//MqnmmVTkg+UoZl+uJVP5Y45+EDygTI00w+n8qnWZZRfSD5Qhuhi3mX69Oz9qV/EIWMohXx8KsUjPt7F2aiMbPSOHftQv/whGmhJPlCQ5hRl/fKH5Dbbi0CnLCEdyf2jY/XpD9UsjbtdUJTanS9/VJ3+GFS/pVhHxCId0TnsuiVBvZOlP7FTH0WpjlLWfDNUe7YBDjhAcqrTUPXODpKNsIyMoTTRyfWxXlNBtWcb4nQ2JKe7sK/z2ypbHWJkDOXJNiXrjETJjpvStUUNsl3JKm1J3aULI2OoQDc7r7B8UZ2rG+naogrhzkLx5Yvwd8NBH6hC89iPd+fCX41sXflNlEs9kZvosR8XhRN03bKy66GwaIrovtuLohm67l6XkcIpahGuDxadbZDdpj9SOEU1ygXCgsMNugO5I4VT1CNcPC14gavwyAeFU9QjXDwtN/yhu9F2ZOIUNSnXCAttDJOum3JOECrSnTwdS1VPleum40jhFPVIVwmLTDgIb5Ub2aqPupTHK4tk6srVZIY+UJfy6EeJGQfledO3L8T8+wDukc7V7Zu30k1bhj5QmXaybt28lW7acswYatPO1q1/bqWbtgx9oDrtN8Z2yFK6EsT9DKhP9saGd6YHB2lPjDGwjvqUB9dH2+W+9sQYaxc40P7JNUw/lDcgX7B2QX3aqxfD9EM8+WDtAgfiqxez9EM9+WDtAg/aqxezQW315IO1CzyIr16MfnXVkw/WLnAhvnoxqn6oJx+sXeBDfPViUv2QTz5Yu8CH+OrFJP2QPjjpgrULfKivXizSD/EMjL36cKOeuM9PP8R3u7BXH360d+1bvDvqyUfxW3+BW8SPuZh/7of2sQUXJs8B8ILB++Gfa276oX3I2MgZyfAkfWLyOPvUU+kD599xvwv8yLct5516ql77sT+1EZhO/ud31syl/MhYmStvgInkOw9zNs7J516MnMKV+uDprNEx+djJEetwJd+6nTG0rf/ZadvCl/cLMNvrvVv1thNtW3iTn3x4uXcrXzambQtv+uXDV4un6gd9jOy2hTf1XbevNy/1C6fstoU3+dmHF3+DExROKX3Am34B8bXhB/2JU7PDooFX6Rc/Xsrh5XcLjkysw59+8eOlX2H5c4I4JBkR6Bc/XqkByDesOWgMEegXP8bnRz8SDH0w9YEA9IsfL7xICT40Ux8IIEHx4/nRj5X3P3k+pj4QgX7x4+keRIa1C1MfiCBB8ePZ1Yv8OQXj3IPWABsJNn88u3rRH1jnrA/EoH9bwbOrlwxrF876QAzeL4KB51YvGfouHHOKGBK0IZ57mRJ8YI45RRAZConPrF5SrF3YL4cYEuz/eGr1kmHtwtAYgkgwOPbUFESCTjVDYwjD+12wMH3fS4a9+rMuqAAsJdh+Op4nf9oE54wxNIY4MtROp29fT3DO2DPREigrQ+10+uE5GUZOqZwijAy108kvVIoPy8wp4vB+GSxMbd2maNtSOUUcGWqnU9+oDG1bZk4RSIba6dR83vufaYKDChFHioR+2g72DPuL2a2PSFK8U9NGIRKcbjJSOUUkDQ1iZijzcMULQklw3unEn2Tvf6QJGi+IJMVv8pSCQIplGiPrCCVFRWDKS5WiSMxhHwglxVs1JaVPMfVB4wWh5MjpJ3zQFEWeF27lBMpJ0XqZsO0lxTmFnBWEYLzfCBOPZzEz7C2m8YJoUrReHp/5kWI6/4mzTYAaUpyh8/i6hhRRkr4tgknRuX1cUvT+B9rgqDHEkuIA0IcNzRxHBdG3RTA5OrePsvoclVM2zCGYHJ3bRzXFHEs0wgei8X4lTDyqneaonNK3RTQ53qwHHzLHzCnhA9HkCB/3i4o5Vmj0bRFOjrLA/a2oOerDhA+EkyN83H+zUuwrZuwD8eQY/LhfFsgxss7YB8LJkdjfPwQ0R31n3FV6JICpcmxlv996ydF4YewD8Xi/FDbuHvnh/Y+zwWkfiCfHT/O9ukCO9RljHwgoR2HgXuslR3WY8IGAcoSPe3dH5+hNc1gQAkpxYNDdn+YkfVumxhBPjt/me53bHPkV4QMB5Qgf97qaK+9/mw2GThFPksLinfMKvf9pRhg6RTxJ2pp3Xi7vf5oRwgfiSR8+knxArphDQEmm1m8XFrOEj4rPBDCV92th43b4SHJOMuEDEXm/FjZONz9fktYS4QMReb8WNm7PjSUJH8ysI6IcYxG3366T9z/NBuEDESUZysz++QgfiCjJ65X98xE+EFGS1+vm59t7/8ts3NtTDHjJseX29nlj3v8wI+yYQ0RJOhM3x069/2FGCB+IiPAhgfCBiJKHjyRD+YQPhJQkfBxvfLwsW14IH4goSfi49XplCR/3r/EFfCS5ATZ7+OC4D0SU5P0ifAD1JXm/CB9AfUner1vhI8lZroQPhJQkfNy6RSlJZZjwgZCShI9bW8oIH0A5hA8JhA9ERPiQQPhARIQPCYQPRET4kED4QESEDwmED0RE+JBA+EBEhA8JhA9ERPiQQPhARIQPCYQPRET4kED4QETJw0eWG7IJH4goSfi4dQ9Kko9H+EBISd4vzvsA6kvyfhE+gPqSvF/ZwwdHJSMijkqWwEUNiChJZ/PW67Xw/ocZIXwgoiTh42Zy7/0PM0L4QERJwgd33AL1ET4kED4QUfbw0Xv/y2zcOkke8LT0fjFs7G59vrX3v8zGraF8wFOS1yv75yN8IKIkr1f2z0f4QEQ5Xq/+5udLUtshfCCilfeLYeL225UkfNxOrwA/3q+FjdvhI8lQPuEDEXm/FjZu9zWzbHqp+EgAU3m/FjZuT1VlCR83O9OAm533a2HjzlCm9z/NCAd+IJ4kP853Xi7vf5oRwgfiyR8+crSWxnO9ZwKY6Oz9WtgYbn/CHIMt7JlDQEnGIu58wiSbeggfiCdH+Fil/4RsuUVAOX6b7410J1meMbWOeHJUBm5dEnWRpDhM+EA8OcLH3cKA9z/Oxu1NgYAX77fCxt2hiCTnjdV6IoDJvF8KG4t7HzFHgsXUOsJJMrN+9zPmqA4zdopwctQV7/Vt03RuGTtFNDm6mve7EjlCJHNjCCfHL/P9NyvJAo3wgWhyhI8H1897//NsMPiBaHJ0Je42XrJ8SMIHosnxZj34kAfvf5+NKg8EMJ33K2HifuPlv/823v9AG1UeCGCywfuVMPFoM+rC+x9og8EPxJKjp3l89DG9/4E2GPxALDnGPh7+LOc4r5DOLWLJ0bd9+DFz1E45MAixpNgO8qhymqV2SucWsaTo2z7+Vc5RO+XED8Ti/UaYeFg5zXLkx53j5IHqcvRtH8ycXqTIsujcIpQUfdspOX2OEvGDrT1AVUfvF8LClIpiijhJ5xahpPhRnvRSef8jTdB6QSQpSgKTKgIpPum+9PMAPGHv/UJYmPRJU+RZbJpDICkaL9My+hzFD1oviCPFOzWxnuj9zzQxYcIFqCRF42XiL3KK4se9uziBulLsJJv4WVMUP2i9II4Mv8iniZ81x7aXoo8D8Azvl8HC5HJAim0vE+bzgSpS/CBPfqFSnE3A2DqiyHAKxvRJqgyflrF1hJGhcjr9BK6GhlyA8jJUTp84PjjFgaflngbgKd6vgoUnPm6KKRdqp4ghQ+V0atv2IsVN2dROEUOGWuJTb1OGDYLMnSKGDJXTp07/zPCBH58qD9SQoJT43MuUYbVG7RQxeL8IBp7cgZph9cKefUSQYbf+7rmPnGH1wuAYIkiwBfXZQkCG1cszvSaglJP3izDf06fnJFi9cNUcIkiwA/XJtUuO1QuDY/CXIJF/fgNIhskxDiyEvwQj3C9MYCZoVk/fJAiUkqD08cKN0QmCJpe9wJ9+6eOVHkSGXftPV3wAYwlKH0/s1f+SIOli1xy86Wfxr3Uwz97/7PmY/IA3/V/hF/ee6o9+MPkBb/qljxdLAAlGP5j8gC/90serO9cTjH4w+QFf+qWPlwuI+ie8UvyAL/l3qH9h6ONDgkPWLJ8E4GneL8BsMw7t0y+evtSyBozoty9nzE7pn1TAgafwJN9+mHNdkn7xlANP4Uk+f5+VvuvfdsvcOvzI//7O2zam37WmdQs/8m3bma+PfN+J1i38qE+sv961/aDfu7V5DoAXeD/8c83uPLRd+wFmkG/bzq4cyqcfHDkGL+qdB4N3R33HILtu4UX93THYcSo/OsauW/hQ71vOGRn7Y1APoQyewof6yKnJLa/q6QcHJsOHeNvBIvlIkH6weoEH9bWL0RXz6ukHqxd4EF+72CQf+ukHqxd4EF+7GCUf+ukHqxfUJ752sUo+9NMPVi+oT3ztYpZ8yKcfrF5Qn/baxS750E8/WL2gNvG1i2HyIZ9+sHpBbdprF8vk4z/1TIzVC2rTfmOMD+kT33hrmooBD229H/lZzLepr7w/0Szs2kdd0nv1e/MTgrWjKbv2UZd0s6Gz/z60Tz19+aJO4AXSi/25J5xeo33mPCcmoybpM5KL/NZqd6IKBFTgBunf2jJXq2nPjnHfC+qRvt+lUJtSej3H6AfqUR76KNallK6eMriOWpQH1kvUTfW/FUY/UI3y0EfBVb5y9bRcVAV+UK4Slqmb6n8vjH6gEuUiYdHtHcq37pWMq8AX4Q0ehfemK1dPKZ6iBuESYekV/k54+ULxFDUIF06L3ycvPBBD8RQVCBcIK2w23vHcAAAStUlEQVTtEF6+MHmK8nR/YGv8vgovX5g8RXm6E6fFly4XutGVQ8dQnO7BOJV2pesuX9i2j9Jkt+rXKg0KL1/MD2EDftDdql9l6XKhu3zhxgaUJbuvo2JmToIGXCPbtd1XfDNkvyR6tyhKNjGv2lWQLS/Tu0VJql3bAmer3yO7xGPfLcpR3WtbfTup6q5C48s7gW9E3wr7a6Eeke3eMjqGUlTX9NV6tl9Uj/4g/UApogOVLlvRVcsfjI6hDNGDPlY+0wyiCz2O/UAZmgd91C98fFAtf5B+oATReXWHwscH0UoR6QdK0Ew+HPdxdN6f/TWkH7CnmXy4dhI0N7+QfsCeZPJRc6vLb4Nm+ZT0A9Ykk4/e+fYBzfIp+/ZhTTL5cN/CIVk+9epVIS3J5KPyRrlrJHcJUf2ALcXkI8RbIDl9SvoBS4rJh9O06b8IvGid4Dvg23T5Itl+If2AHcHkw7vp8mUQPGOJ9AN2BJOPMNHjv/8Wgu1b0g9YEUw+3Fu23wnGD66MghW94etQ0UPy8CCOHYMNvdmncEt3vfEPjh2DDblDxsJFD8X4QfoBC3LJR8DoIXhDDne+wIJa37H6rQzTyHWvgtWPIEkt7Q4ybPqbWvzgxlvMpnZha9jooRc/Auw4hDixE/cCRw+5+MHGfcwkduBN6OghFz9C1qAhROuBDx491L5OmreYRatpGz56qMWPoE0siJDabC4QPdTiB81bvE6qaSsRPcTiB81bvEyqaSsSPcRiMqeu41VK53SeVKKHWPwIdG4KpCy8H90nSPUYleIHO2/xGqGdtlLRQ+v8IKqneIXQb6TceLVQ/KB6ihcI1U0FfyB3Oi1xscwOIcg0GPuz91f1CqH7G5g9xbNk5k3j3MjwJJn4zMFBeJbKIUEr3W2hMpuZ5UpLcKbyaK+VC3sblfKSaoIHHyojH+JlPZUGDMMfeIbIyIdgy+UnlQLq0fuLghCNY8H7DC0BjQIqB49hMo0jxoSLpt9pTOexfMFUEkuXpXLR9LuFRJOL5QumkVi6JHqcB4VwzfIFkygsXfa5WokKbXKWL5hC4LdQetrjmq1AyE6U76EYgaVLwilIgQWM7O4A1BN/kinZwuWP+GGbc9fxSPg5JqFTCZ+zCP/VJ8z6YCp6Ea+XHzS9bQh/tmzOvA9Wou91STIqdkv0Cuo+a+YHC0PwCab02fNw8v6K7xPfooiiYm/AWLWQO59jJyCSJ7uhirP3w3lX+tTjQ+wEhOFT3BB63LSJ1OPDOfISku4trovcOGwk9fgQugXDtZW4JvAzu24n9fiwDRzKM5yyAmtxj1bvW9xtcQy7kuTeKPwS91aoNAd7PGcXtoTK3lv8K+qWrX27uXLYFQzlD/wUtPDR5LrlS9QVDNMf+C7oxEej65YvQXswTH/gm5gTH831W66JWQJZtR7X8SXkbSN7MuQP24hlKTa/4I+AW10yb8x/2jbgGCp/H3yId9NI35Ec/7CJF0BYWeIi3BkfBI8rwgUQpsfwX8B5sebbLTdECyCUTxGubLqkJ3hTsABC+RShyqYsWx7YhOrCtD3Th1jXAxA8JgjVxqW33rZA06b7DcFjkl2chJGbo5oW506oNXME0w1dlCIIR683LMzB6st2t9W+KEoRhPZLs4I0XfqOZssLdssQqSPtl1aFWEOzannZECIF4fCPNgXYC94fSDxm2R3815/E/xb573Q50fczcHZfxPBnbI93y3Z1pOhmZNj4nglC+7Y5vi3bPYsWW74RhPjRGM/jxfYHnrYCPCMI7dum+LVsiR0FDW51EOJHQ7yix+pI7Cht0bn8cbn7pR0e4wL9iT0tlQybZf12LuNjrag/LrbuSDvq2lUPIcSPNlSOHqvDmbTDxVsIqbmQIX60oGb0WHeEDl/DtjvVKqcyfppfrWHT1fLINtogdm8xpMZShviRXY3ocYkcJB3hbDfduvBihviRW+HosVp3G4qkoS3O3brcaob4kVnB6LE+EDhk7M6HQnkI8SOvQtGjP1Hm0DOci7R2iR9ZFYkeq47QIWtxtE9CiB85FYgepw07Z8XtzCMI8SMj8+jBFHoSO+OD24kf+RhHj/2RvCORrekwIfEjG9vowcUK6ZjeHUP8yMUyeuy5SzKnjV0VhPiRiWH04GKFxOwu0OUpycMueqxZteRmFkCIH1mYRQ+CRwOsAgjXR+VgdR0UwaMRRgGE8z8yMGrJETwasjHpwhA/9NlEjz1L2aYMncWu3BMtOm2Dyd0fPa3a5uwsnhzub5BmcyPDiQHTFm0NVjArHh1dO4vosafo0ajBoOjO/ZWyTO6xPZB/tmsx//en59dH09Ygeqz48WhbN/8ZouquyGJYrPP+EPBmUAHhKdJj8LOxJ/XAf8P81j8DIGoMxj2WVD1wsZm9CqaBK8WgYdufvT8EophfQaWGJsSgYE7DHl/mL2BowMgwaLmwWsUP8wvxNGA0GLRc+FPjH/OHiPhJUjC/aMqkIH6bP8JMATU8g6Ipf2VcM3/7Jb9LwRnMqdOvxQ3zE1tWxZHN79AzIojb5pfVKIDEZTArxs8D7pgfP1gaB8WsGIqbPxTABEhIBtMelLbwiEF1jfVxPAZb5IgeeMwgfqxZwMQyGJytT/TAFAbxgwVMKJwMhHosTrFjAROHwcKFijgms4gfLGCCsFi4jHv+mpjMIn7Q5QvhbHEgMnUPPMPmFG7vTwGbG2yJHniOybXrlNucGRwMNBI98DyT+DEevT9G044mf8OR6IGnWdTrx3HNqXZedhY105F9LniJzeXrVFCdmNRMR6IHXmT063Wi6Vff/MNbPrGFGq+xuYCdBMSBVeoxnrw/CWSZtG/fH0ISkJrMUg+GTTHD2eoxJAGpyCz1GHsK35jBpv1yQQumkp1Z6jGO7HzELHbPYs8MSA1Hs9SDfY+Ya9jbPY1r5o9KWxh1y95RNsVcC8PnceyoxJU02K01R3bZwoLR5PPnI8lqupytYaY4MqsOE5b58FtGTAm1DMuS6QWlKlgYDItxb3oKciV0tn+lce39gZCE2fTHJ1Yw5ozXLUx8wI5xWswQiDGrvbXfMOYHK8bLlwt6MGZs+y0f6NnCjvXy5U3PRnAbBvde//7jENxhyHz5MlICMWFe9HjH0gWWdgV+4hhDnc10yPTb38X7cyGZAuvriyU11NftbM6D+4WuC6wZHR30CzXUF5WomH7+Sbw/GtLZlnpYewLICwbrMbEve+/PhoRKVE8/MIf6tHLBg0M+UMKu3AM77uniPmNTpN3yiZEPlFBsrX1BAJmsaPAYR+qmKKHA7Ol3BJBJCgcPLiZGIUXTjzd7iqgPDMfCwYN5U5RSOP0Y6cLcV7Db8hdVbJRSOv0YLwGEtfd1uwrBg+QD5ZRPPy6YRL2i1ITpP0g+UE6F9ONizejBT9tyQzc/kHygoDrpx5sVbZgvm1IbBn4h+UBJldKPkSrqHzXqpX+/c75ylDRUe5TfLFnDbOuUPD6RfKCsqo/z2xqm5d/Dod6q5QM1a5RleuncBP2h1Wd6d6i3avmw9P7ISK/M+Vb3rBtMQYZN/e+Za+VQ3Kb+Yz32y7ae7MWyduJxwRGFKM/jyR7H/bGVRcyu+L6WG+iVo7yDz8M9jqcWnu9NpQGx33rvj44W1C6efn/Cl7lvEDi7LFo+sVMfNTjl1h/6Q9YyyKJ6p+WnrN8rYjm6PuXjuE8YQRYH16D8ZuX9FaANJQ89nShXBPGPHW+O3t8CGlF5FvK6LHUQ13rHN600tuDNe/XyR38SHygbNqcYsYO1C6oJsHr5a9WpLmMWXYgs7hNrF9QSYKn+Tb/cqGXeu02QJctfat8gdLlNjt20OuhUQs6HSGnHB9YuqObs/bRfte7inw+y7Ry2wk3ASR+ox/tpv2ndnaNWU4dz0NBxoVpAgqK478GbVbxayG4TcMHyDftdUFG9I09f1L+tZGKkIcPbeiVYmfQ3rsVGRVvv532S/anbeuYhu213itWkuoW2LWryft6n69eHTf2S6nZziJ9zfKH0gZpCr+Sv2K+7TZXVzLDddGuNlOMLpQ9UFW/yY5L1slgUucSNU+iS8m2UPlCVx4mndlbvYcRmSbN9CxvLtVo29hNTH6jK8cgxS/v1+tB15+2TFdbddnvuusNabpVyQ/xxO+Ti/cQX0K/fnLo/tp/Of//L6fI/CBVEJ4vR4kY7tLN1fEflFJWJFglxBRe8oLLwc6eYjMopKtNuveA7Zk5RmcbYOqag8YLavJ95mKHxgtqSjDyAxgvqo/WSBY0XVEfrJQsaL6gu5nmneN7G+1FCeyJd9oI5OOwD9Xk/9TDi/SChRdROc6ByCgeiJwbhHwfvBwktonaaA5VTOKB2mgOVU3jIeHBOe5g5hYuT95MPA1RO4YK50wyYOYUL9uxnwG59+PB+8mHA+yFCqxgc00fpA04ofuhjaAxOKH7oO3s/RGiW97OP2bwfIbSL4oc6Sh9wQ/FDHVMfcJPkouyGMfUBP2x70caGFzhaej//mOXk/QChZVxVqY2zPuBo8H7+McvO+wFC01beLwBmWHk/Pmjb0fsNwAxMrMMVrVtlnFMIX9yUrWvv/fCgdVzXoGvp/fCgdaxedLHbFt5Yvahi5BTuGDxVxdoF7rhsThVrF/hj9aKJtQsCoPeiibULAqD3oomjPhABqxdFzIwhBI4sVMR+F4Sw834T8AL26iMGDlzXw159BMGZY3o4ZwxBDJyYLGfwfmiATwyuq2HoA2Fw2a0ahj4QB6MfWhj6QCAcearl6P3AAF8onmqhcIpIKJ4qoXCKUNg3p4QT1hELk6c6mDhFMEye6mDiFNHQu1VB1xbh0LtV0Xk/KsC/6N2K6OnaIh7OPNVA1xYBcWqQBs4JQkSMjikg+UBIpB8KSD4QE+lHfGvvhwS4jsn1+DjoA1ExuR4dyQfC4tSx6Eg+EBfpR2wkHwiM9CM2kg9EdvJ+QXAHyQdCY/YjMpIPxMbsR1wMnCI40o+4GDhFdGy8jYrkA+Fx7kdQPckH4uu83xNcxSFjEDBw6mlEHDIGCRy6HhHHq0MDo+vxcLcLRDC6Hg8TY1DB7Fg0NG0hg+ZtMDRtIYQ7o2KhaQslK+8XBt9wLSWkUD2NhLoptLD1JQ7qphBD9TQM5k0h5+z91uAT86bQw7mFMXBCIQTtWL5EwMgHJDH8EcHR+zEAXsLWOX8sXSCK5Ys7li6QxfLFG0sX6KL74oulC4QxPOaKpQukMTzm6ez95wdmYe+LH/a6QNzA1n0ve/a6QN3C+y1q1sL7Tw/MRvfWByeMIQO6tx7o2SIFrp1zwCEfSILyR32cT4gsKH/UxrA68uDeqLpO3n9wwA7TH1WtKHwgE/buV9Qz8YFcuPilHra6IBvKp7UwL4Z8KJ/WwUY5ZET5tAbKpkiJ6dMKmDZFUgvaL6XRdEFanD1WGhdSIq+N9+uVHNEDmXF2YUk0XZAb7dtyiB7IjpsrS1l5/2mB0tg9VwgDH2gA8aMIogeawPhYAVwoh0YwPmaOcTE0g/hhjOiBhhA/TBE90BTihyGiBxpD/DBD9EBziB9GiB5oEPHDBNEDTSJ+GCB6oFHEj9mIHmgW8WMmogcatmP/yxxEDzSN/XMzsEsOjSN+vIzogeYNnD/2mhPRA+D8wpdwMiFwwfW3z+MiW+AD9zc8ixsZgD8YAHlKv/X+gwGBLGjATLdn3AP4buACh6lo2AL/4gK6aWi5AL9RQJ2CoilwDQXUh9jlAtxAAeQByh7AbRRA7qHsAdxzZgFzS0/ZA7iPI0BuWFH2AB5iAXPNkrIHMAELmF9YuAAT7ejA/LTaef9JAB2d9wsbCrvzgWcs9t7vbBh79tcCzxmooH44UDMFnrYlARnH/uz9ZwAkkYBwHjLwssYTEKoewAxNJyBUPYB5mj3GcEXqAcx2bHEItWfWA7CwO3m/zNWtGTMFjDRWQt3TrQUMde2sYFi3AMaauUp7yboFMLdoYR/umn4LUMQ5ewlkz7EeQDGbzAGkP3p/vUBqQ9oaat8xZAoUljOAEDyAKvIFEIIHUE2uAELwAKrKE0AIHkB1wzFDF4bgAfiQb+My5wH42SpPoq7ZGQe42i01iyA9e1sAf4PgGmZ/pOQBxLDV2o67ZF8cEIhOH4bEA4hnIVAF6ZcL768JwFXn2KeinujTAoENm6gRZLVh0QJEFzGCrI60aQENsSLIaUPsAJQM5xCV1H7JmgVQtOh8b7hcdfRZAF3D+eAzELJfnkk7AHm7zbJuCNkvqXYAebxlIXU2564PZ0IHkM/2uCxZDFktj2xmATLbHgvkIesDkQNoxG7bHdYWBZF+fei2rFaA9iy2XbdevzIf0q/XXbcl4wCat9tuj113Wq/vl0ZW60vQeIsapBsArnoLJr8QMAAAAAAAAAAAAAAAAAAAAAC84H+Gl6U7rYtT4AAAAABJRU5ErkJggg==" alt="Círculo Saúde" />
+      <div>
+        <div class="name">Círculo Saúde</div>
+        <div class="footer-muted">Uma das mais importantes instituições de saúde do Rio Grande do Sul.</div>
+      </div>
+    </div>
+    <a class="back-to-top" href="#topo">↑ Voltar ao topo</a>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var tocLinks = Array.prototype.slice.call(document.querySelectorAll('.toc-link'));
+  var sections = tocLinks.map(function(a){ return document.querySelector(a.getAttribute('href')); }).filter(Boolean);
+
+  var drawerNav = document.getElementById('tocDrawerNav');
+  var sourceNav = document.getElementById('tocNav');
+  if (drawerNav && sourceNav) drawerNav.innerHTML = sourceNav.innerHTML;
+
+  var toggle = document.getElementById('tocToggle');
+  var closeBtn = document.getElementById('tocClose');
+  var backdrop = document.getElementById('tocBackdrop');
+  function openDrawer(){ document.body.classList.add('toc-open'); }
+  function closeDrawer(){ document.body.classList.remove('toc-open'); }
+  if (toggle) toggle.addEventListener('click', openDrawer);
+  if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
+  if (backdrop) backdrop.addEventListener('click', closeDrawer);
+  document.querySelectorAll('.toc-drawer a').forEach(function(a){
+    a.addEventListener('click', closeDrawer);
+  });
+
+  if ('IntersectionObserver' in window && sections.length){
+    var byId = {};
+    tocLinks.forEach(function(a){ byId[a.getAttribute('href').slice(1)] = a; });
+
+    var observer = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        var link = byId[entry.target.id];
+        if (!link) return;
+        if (entry.isIntersecting){
+          tocLinks.forEach(function(a){ a.classList.remove('active'); });
+          link.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-15% 0px -70% 0px', threshold: 0 });
+
+    sections.forEach(function(s){ observer.observe(s); });
+  }
+})();
+</script>
